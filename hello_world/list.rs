@@ -9,14 +9,14 @@ impl fmt::Display for List {
         // and create a reference to `vec`.
         let vec = &self.0;
 
-        write!(f, "[")?;
+        write!(f, "[0:")?;
 
         // Iterate over `v` in `vec` while enumerating the iteration
         // count in `count`.
         for (count, v) in vec.iter().enumerate() {
             // For every element except the first, add a comma.
             // Use the ? operator to return on errors.
-            if count != 0 { write!(f, ", ")?; }
+            if count != 0 { write!(f, ", {}: ", count)?; }
             write!(f, "{}", v)?;
         }
 

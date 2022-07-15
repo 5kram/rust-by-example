@@ -21,6 +21,24 @@ impl Display for City {
     }
 }
 
+#[derive(Debug)]
+struct Color {
+    red: u8,
+    green: u8,
+    blue: u8,
+}
+
+impl Display for Color {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        let color_r = format!("{:0>2X}", self.red);
+        let color_g = format!("{:0>2X}", self.green);
+        let color_b = format!("{:0>2X}", self.blue);
+        
+        write!(f, "RBG ({}, {}, {}) 0x{}{}{}",
+            self.red, self.green, self.blue, color_r, color_g, color_b)
+    }
+}
+
 fn main() {
     for city in [
         City { name: "Dublin", lat: 53.347778, lon: -6.259722 },
@@ -28,5 +46,14 @@ fn main() {
         City { name: "Vancouver", lat: 49.25, lon: -123.1 },
     ].iter() {
         println!("{}", *city);
+    }
+    for color in [
+        Color { red: 128, green: 255, blue: 90 },
+        Color { red: 0, green: 3, blue: 254 },
+        Color { red: 0, green: 0, blue: 0 },
+    ].iter() {
+        // Switch this to use {} once you've added an implementation
+        // for fmt::Display.
+        println!("{}", *color);
     }
 }
