@@ -2,7 +2,7 @@ use std::fmt; // Import `fmt`
 
 // An attribute to hide warnings for unused code.
 // #![allow(dead_code)]
-
+#[allow(dead_code)]
 #[derive(Debug)]
 struct Person {
     name: String,
