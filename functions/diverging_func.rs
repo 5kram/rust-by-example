@@ -1,3 +1,10 @@
+// Diverging functions never return.
+// They are marked using !, which is an empty type.
+// The main advantage of this type is that it can be cast to any other one and
+// therefore used at places where an exact type is required, for instance in match branches.
+
+// This allows us to write code like this:
+
 fn main() {
     fn sum_odd_numbers(up_to: u32) -> u32 {
         let mut acc = 0;
