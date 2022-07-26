@@ -1,0 +1,3 @@
+# .gitignore for executable crates
+# Generated files
+/target/
