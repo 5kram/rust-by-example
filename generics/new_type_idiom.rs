@@ -26,4 +26,9 @@ fn main() {
     println!("Old enough {}", old_enough(&age));
     println!("Old enough {}", old_enough(&age_days.to_years()));
     // println!("Old enough {}", old_enough(&age_days));
+    
+    // Obtain the `newtype`'s value as the base type
+    let years_as_primitive_1: i64 = age.0; // Tuple
+    let Years(years_as_primitive_2) = age; // Destructuring
+    println!("{}, {}", years_as_primitive_1, years_as_primitive_2);
 }
