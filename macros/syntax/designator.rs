@@ -27,6 +27,13 @@ macro_rules! print_result {
     };
 }
 
+macro_rules! print_number {
+    ($number:ident) => {
+        println!("{:?}",
+            $number);
+    };
+}
+
 fn main() {
     foo();
     bar();
@@ -39,4 +46,9 @@ fn main() {
 
         x * x + 2 * x - 1
     });
+
+    let _number = 5i32;
+
+    print_number!(_number);
+    print_result!(_number);
 }
