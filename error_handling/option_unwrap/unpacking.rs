@@ -8,6 +8,7 @@ struct Job {
 }
 
 #[derive(Clone, Copy)]
+#[allow(dead_code)]
 struct PhoneNumber {
     area_code: Option<u8>,
     number: u32,
@@ -22,6 +23,10 @@ impl Person {
         // is easier.
         self.job?.phone_number?.area_code
     }
+
+    fn number(&self) -> Option<u32> {
+        Some(self.job?.phone_number?.number)
+    }
 }
 
 fn main() {
@@ -35,4 +40,5 @@ fn main() {
     };
 
     assert_eq!(p.work_phone_area_code(), Some(61));
+    println!("phone number: {:?}", p.number());
 }
